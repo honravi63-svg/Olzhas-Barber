@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Олжас Barber — Павлодар</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0b0b;
+            color: #ffffff;
+        }
+
+        /* ===== HEADER ===== */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #252525;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #c8a46a;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #c8a46a;
+        }
+
+        /* ===== HERO ===== */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px 50px;
+
+            background:
+                radial-gradient(circle at center, #292929 0%, #111111 45%, #050505 100%);
+        }
+
+        .hero-content {
+            max-width: 850px;
+            animation: appear 1s ease;
+        }
+
+        .subtitle {
+            color: #c8a46a;
+            letter-spacing: 5px;
+            font-size: 13px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 10vw, 100px);
+            line-height: 0.95;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 span {
+            color: #c8a46a;
+        }
+
+        .hero p {
+            color: #bcbcbc;
+            font-size: 19px;
+            line-height: 1.7;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 16px 28px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .button.gold {
+            background: #c8a46a;
+            color: #111111;
+        }
+
+        .button.gold:hover {
+            background: #e1c187;
+            transform: translateY(-3px);
+        }
+
+        .button.outline {
+            border: 1px solid #555555;
+            color: white;
+        }
+
+        .button.outline:hover {
+            border-color: #c8a46a;
+            color: #c8a46a;
+            transform: translateY(-3px);
+        }
+
+        /* ===== SECTIONS ===== */
+
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 100px 25px;
+        }
+
+        .section-label {
+            text-align: center;
+            color: #c8a46a;
+            font-size: 13px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 55px;
+        }
+
+        /* ===== SERVICES ===== */
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .service {
+            background: #151515;
+            border: 1px solid #282828;
+            border-radius: 10px;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .service:hover {
+            transform: translateY(-5px);
+            border-color: #c8a46a;
+        }
+
+        .service-number {
+            color: #c8a46a;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .service h3 {
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+        .service p {
+            color: #999999;
+            line-height: 1.6;
+            margin-bottom: 22px;
+        }
+
+        .price {
+            color: #c8a46a;
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        .notice {
+            text-align: center;
+            color: #666666;
+            margin-top: 25px;
+            font-size: 13px;
+        }
+
+        /* ===== ABOUT ===== */
+
+        .about-box {
+            background: #151515;
+            border: 1px solid #282828;
+            border-radius: 10px;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .about-box h3 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .about-box h3 span {
+            color: #c8a46a;
+        }
+
+        .about-box p {
+            max-width: 700px;
+            margin: auto;
+            color: #aaaaaa;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* ===== INFO ===== */
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .info-card {
+            background: #151515;
+            border: 1px solid #282828;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .info-icon {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .info-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            color: #999999;
+            line-height: 1.5;
+        }
+
+        /* ===== CONTACT ===== */
+
+        .contact {
+            background: linear-gradient(135deg, #191919, #101010);
+            border: 1px solid #2d2d2d;
+            border-radius: 12px;
+            padding: 60px 30px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .contact h2 span {
+            color: #c8a46a;
+        }
+
+        .contact > p {
+            color: #999999;
+            margin-bottom: 35px;
+        }
+
+        .contact-details {
+            margin-bottom: 35px;
+        }
+
+        .contact-details p {
+            color: #aaaaaa;
+            margin: 10px;
+        }
+
+        .contact-details strong {
+            color: white;
+        }
+
+        /* ===== FOOTER ===== */
+
+        footer {
+            border-top: 1px solid #222222;
+            text-align: center;
+            padding: 30px 20px;
+            color: #666666;
+            font-size: 13px;
+        }
+
+        /* ===== ANIMATION ===== */
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== MOBILE ===== */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 18px 20px;
+            }
+
+            nav .links {
+                display: none;
+            }
+
+            .hero {
+                min-height: 90vh;
+            }
+
+            .hero h1 {
+                font-size: 58px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 70px 18px;
+            }
+
+            .section-title {
+                font-size: 34px;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-box {
+                padding: 35px 20px;
+            }
+
+            .contact h2 {
+                font-size: 35px;
+            }
+
+            .button {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- НАВИГАЦИЯ -->
+
+    <nav>
+
+        <div class="logo">
+            OLZHAS <span>BARBER</span>
+        </div>
+
+        <div class="links">
+            <a href="#services">Услуги</a>
+            <a href="#about">О барбере</a>
+            <a href="#contact">Контакты</a>
+        </div>
+
+    </nav>
+
+
+    <!-- ГЛАВНЫЙ ЭКРАН -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="subtitle">
+                Barber • Pavlodar
+            </div>
+
+            <h1>
+                OLZHAS<br>
+                <span>BARBER</span>
+            </h1>
+
+            <p>
+                Мужские и подростковые стрижки
+                с вниманием к деталям и индивидуальному стилю.
+            </p>
+
+            <div class="buttons">
+
+                <a
+                    class="button gold"
+                    href="https://wa.me/77472975788"
+                    target="_blank"
+                >
+                    Записаться в WhatsApp
+                </a>
+
+                <a
+                    class="button outline"
+                    href="#services"
+                >
+                    Посмотреть услуги
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- УСЛУГИ -->
+
+    <section id="services">
+
+        <div class="section-label">
+            Services
+        </div>
+
+        <h2 class="section-title">
+            Услуги и цены
+        </h2>
+
+
+        <div class="services">
+
+
+            <div class="service">
+
+                <div class="service-number">
+                    01
+                </div>
+
+                <h3>
+                    Мужская стрижка
+                </h3>
+
+                <p>
+                    Классические и современные мужские стрижки
+                    с подбором формы под клиента.
+                </p>
+
+                <div class="price">
+                    8 000 ₸
+                </div>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-number">
+                    02
+                </div>
+
+                <h3>
+                    Подростковая стрижка
+                </h3>
+
+                <p>
+                    Аккуратная современная стрижка
+                    для подростков.
+                </p>
+
+                <div class="price">
+                    7 000 ₸
+                </div>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-number">
+                    03
+                </div>
+
+                <h3>
+                    Стрижка + борода
+                </h3>
+
+                <p>
+                    Комплексная услуга для создания
+                    законченного образа.
+                </p>
+
+                <div class="price">
+                    10 000 ₸
+                </div>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-number">
+                    04
+                </div>
+
+                <h3>
+                    Оформление бороды
+                </h3>
+
+                <p>
+                    Аккуратное оформление и поддержание
+                    формы бороды.
+                </p>
+
+                <div class="price">
+                    5 000 ₸
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="notice">
+            * Цены, кроме подростковой стрижки, указаны как примерные
+            и требуют уточнения у мастера.
+        </div>
+
+    </section>
+
+
+    <!-- О БАРБЕРЕ -->
+
+    <section id="about">
+
+        <div class="section-label">
+            About
+        </div>
+
+        <h2 class="section-title">
+            О барбере
+        </h2>
+
+
+        <div class="about-box">
+
+            <h3>
+                Олжас <span>Barber</span>
+            </h3>
+
+            <p>
+                Олжас специализируется на мужских и подростковых
+                стрижках. Работает в отдельном кабинете,
+                где можно спокойно получить услугу
+                без лишней суеты.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ИНФОРМАЦИЯ -->
+
+    <section>
+
+        <div class="section-label">
+            Information
+        </div>
+
+        <h2 class="section-title">
+            Где меня найти
+        </h2>
+
+
+        <div class="info-grid">
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    ✂
+                </div>
+
+                <h3>
+                    Кабинет
+                </h3>
+
+                <p>
+                    Garden Park<br>
+                    Кабинет №102
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    📍
+                </div>
+
+                <h3>
+                    Адрес
+                </h3>
+
+                <p>
+                    ул. Астана, 170<br>
+                    Павлодар
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    🕐
+                </div>
+
+                <h3>
+                    Запись
+                </h3>
+
+                <p>
+                    По предварительной записи
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- КОНТАКТЫ -->
+
+    <section id="contact">
+
+        <div class="contact">
+
+            <div class="section-label">
+                Contact
+            </div>
+
+            <h2>
+                Запишись к <span>Олжасу</span>
+            </h2>
+
+            <p>
+                Свяжись с мастером удобным способом.
+            </p>
+
+
+            <div class="contact-details">
+
+                <p>
+                    <strong>Телефон:</strong>
+                    +7 747 297 5788
+                </p>
+
+                <p>
+                    <strong>Адрес:</strong>
+                    ул. Астана, 170
+                </p>
+
+                <p>
+                    <strong>Кабинет:</strong>
+                    Garden Park, №102
+                </p>
+
+            </div>
+
+
+            <div class="buttons">
+
+                <a
+                    class="button gold"
+                    href="https://wa.me/77472975788"
+                    target="_blank"
+                >
+                    WhatsApp
+                </a>
+
+                <a
+                    class="button outline"
+                    href="tel:+77472975788"
+                >
+                    Позвонить
+                </a>
+
+                <a
+                    class="button outline"
+                    href="https://www.google.com/maps/search/?api=1&query=Астана+170,+Павлодар"
+                    target="_blank"
+                >
+                    Открыть карту
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        OLZHAS BARBER • Павлодар
+
+    </footer>
+
+
+</body>
+</html>
